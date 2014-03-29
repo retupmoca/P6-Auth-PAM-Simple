@@ -1,4 +1,4 @@
 P6-Auth-PAM-Simple
 ==================
 
-    my $login-valid = authenticate('login', 'myuser', 'mypass');
+    my $login-valid = authenticate('mypamservice', 'myuser', 'mypass');
