@@ -15,6 +15,7 @@ sub library {
             return $_~'/Auth/PAM/libauthpamsimple'~$so;
         }
     }
+    die "Unable to find libauthpamsimple";
 }
 
 sub auth(Str is encoded('ascii'), Str is encoded('ascii'), Str is encoded('ascii')) returns int32 is native { * };
