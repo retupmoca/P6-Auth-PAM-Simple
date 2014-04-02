@@ -5,5 +5,20 @@ our sub authenticate(Str $service, Str $user, Str $pass --> Bool) is export {
 }
 
 use NativeCall;
+use LibraryMake;
 
-sub auth(Str is encoded('ascii'), Str is encoded('ascii'), Str is encoded('ascii')) returns int32 is native($*VM<config><prefix>~'/languages/perl6/site/lib/Auth/PAM/libauthpamsimple.so') { * }
+sub library {
+    my $so = get-vars('')<SO>;
+    my @dirs = @*INC;
+    @dirs.unshift('.');
+    for @dirs {
+        if ($_~'/Auth/PAM/libauthpamsimple'~$so).path.r {
+            return $_~'/Auth/PAM/libauthpamsimple'~$so;
+        }
+    }
+}
+
+sub auth(Str is encoded('ascii'), Str is encoded('ascii'), Str is encoded('ascii')) returns int32 is native { * };
+# we set the libname here because we need it to happen at runtime, not compiletime
+&auth.libname = library;
+
