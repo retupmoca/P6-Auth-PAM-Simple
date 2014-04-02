@@ -10,7 +10,6 @@ use LibraryMake;
 sub library {
     my $so = get-vars('')<SO>;
     my @dirs = @*INC;
-    @dirs.unshift('.');
     for @dirs {
         if ($_~'/Auth/PAM/libauthpamsimple'~$so).path.r {
             return $_~'/Auth/PAM/libauthpamsimple'~$so;
