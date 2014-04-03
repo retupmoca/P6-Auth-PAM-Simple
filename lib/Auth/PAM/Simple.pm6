@@ -18,7 +18,7 @@ sub library {
     die "Unable to find libauthpamsimple";
 }
 
-sub auth(Str is encoded('ascii'), Str is encoded('ascii'), Str is encoded('ascii')) returns int32 is native { * };
+sub auth(Str is encoded('ascii'), Str is encoded('ascii'), Str is encoded('ascii')) returns int32 { * };
 # we set the libname here because we need it to happen at runtime, not compiletime
-&auth.libname = library;
+trait_mod:<is>(&auth, :native(library));
 
