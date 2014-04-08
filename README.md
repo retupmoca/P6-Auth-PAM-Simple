@@ -9,7 +9,7 @@ is the 'login' service. Patches and fixes are welcome - this module is just a qu
 
 ## Example Usage ##
 
-    my Bool $login-valid = authenticate('mypamservice', 'myuser', 'mypass');
+    my Bool $login-valid = authenticate('login', 'retupmoca', 'xxxxxx');
 
 ## Functions ##
 
