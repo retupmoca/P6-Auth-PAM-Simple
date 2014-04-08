@@ -1,6 +1,8 @@
 use v6;
 use Test;
 
+plan 2;
+
 use Auth::PAM::Simple;
 
 ok True, "Module loaded";
