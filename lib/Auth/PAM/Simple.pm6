@@ -8,6 +8,7 @@ use NativeCall;
 use LibraryMake;
 
 sub library {
+    my $so = get-vars('')<SO>;
     find-bundled('libauthpamsimple'~$so, 'Auth/PAM');
 }
 
