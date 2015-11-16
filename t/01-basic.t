@@ -2,7 +2,7 @@ use v6;
 use Test;
 use Pod::Coverage;
 
-plan 2;
+plan 3;
 
 use Auth::PAM::Simple;
 
